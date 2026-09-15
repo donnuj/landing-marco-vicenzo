@@ -1,0 +1,117 @@
+"use client";
+import { motion } from "framer-motion";
+
+const posicionamentos = [
+  {
+    categoria: "Transparência Pública",
+    cor: "#003087",
+    itens: [
+      {
+        titulo: "Fiscalização do poder público",
+        descricao: "Marco Vicenzo tem atuado publicamente na cobertura e divulgação de ações da administração pública do DF, utilizando sua plataforma jornalística para dar transparência a questões de interesse da população.",
+        fonte: "Posicionamento público documentado — canal @vicenzonews",
+      },
+    ],
+  },
+  {
+    categoria: "Direitos do Cidadão",
+    cor: "#4E9E39",
+    itens: [
+      {
+        titulo: "Defesa dos direitos dos moradores do DF",
+        descricao: "Com formação jurídica e experiência como advogado, o candidato posiciona sua candidatura em torno da defesa dos direitos dos cidadãos do Distrito Federal, especialmente em relação à atuação dos órgãos públicos.",
+        fonte: "Bio oficial e posicionamento público declarado pelo candidato",
+      },
+      {
+        titulo: "Acesso à informação e prestação de contas",
+        descricao: "Através do canal de jornalismo @vicenzonews, o candidato promove a cobertura de questões de interesse público, buscando ampliar o acesso da população às informações sobre a gestão do DF.",
+        fonte: "Atividade jornalística documentada — @vicenzonews (108 mil seguidores)",
+      },
+    ],
+  },
+  {
+    categoria: "Comunicação e Mobilização",
+    cor: "#F5A623",
+    itens: [
+      {
+        titulo: "Canal direto com o cidadão",
+        descricao: "O candidato investe em comunicação direta com a população por meio das redes sociais, construindo um canal acessível para que o cidadão possa acompanhar e participar das discussões sobre o DF.",
+        fonte: "Atuação documentada nas redes sociais — @vicenzodf (146 mil seguidores)",
+      },
+    ],
+  },
+];
+
+export function Propostas() {
+  return (
+    <section id="propostas" className="py-20 sm:py-28" style={{ background: "#F5F7FA" }}>
+      <div className="mx-auto max-w-5xl px-4 sm:px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-4"
+        >
+          <span
+            className="text-xs font-bold tracking-widest uppercase block mb-3"
+            style={{ color: "#4E9E39", fontFamily: "'Barlow Condensed', sans-serif" }}
+          >
+            Posicionamentos e ideias
+          </span>
+          <h2
+            className="text-4xl sm:text-5xl font-black uppercase leading-none mb-4"
+            style={{ fontFamily: "'Barlow Condensed', sans-serif", color: "#001A4D" }}
+          >
+            Propostas
+          </h2>
+          <div className="w-16 h-1 mb-6" style={{ background: "#F5A623" }} />
+          <p className="text-sm text-gray-500 max-w-xl leading-relaxed italic">
+            Os posicionamentos abaixo são baseados em atuação pública documentada e declarações oficiais do candidato. As propostas legislativas formais serão apresentadas durante a campanha.
+          </p>
+        </motion.div>
+
+        <div className="mt-10 space-y-8">
+          {posicionamentos.map((bloco, bi) => (
+            <motion.div
+              key={bloco.categoria}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: bi * 0.1 }}
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-3 h-3 rounded-sm" style={{ background: bloco.cor }} />
+                <h3
+                  className="text-base font-bold uppercase tracking-widest"
+                  style={{ fontFamily: "'Barlow Condensed', sans-serif", color: bloco.cor, fontSize: "0.85rem" }}
+                >
+                  {bloco.categoria}
+                </h3>
+              </div>
+
+              <div className="space-y-3">
+                {bloco.itens.map((item) => (
+                  <div
+                    key={item.titulo}
+                    className="bg-white rounded-sm p-5 border-l-4"
+                    style={{ borderColor: bloco.cor, boxShadow: "0 1px 8px rgba(0,0,0,0.06)" }}
+                  >
+                    <h4
+                      className="text-lg font-bold mb-2"
+                      style={{ fontFamily: "'Barlow Condensed', sans-serif", color: "#001A4D", fontSize: "1.15rem" }}
+                    >
+                      {item.titulo}
+                    </h4>
+                    <p className="text-sm text-gray-600 leading-relaxed mb-3">{item.descricao}</p>
+                    <p className="text-xs text-gray-400 italic">{item.fonte}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
