@@ -18,78 +18,91 @@ export default function PrivacyPolicy() {
       <div className="prose prose-zinc max-w-none space-y-6 text-zinc-600">
         <section>
           <h2 className="text-xl font-semibold text-zinc-800">
-            1. Coleta de Dados
+            1. Responsável pelo Tratamento
           </h2>
           <p>
-            Coletamos dados pessoais fornecidos voluntariamente (nome, e-mail,
-            telefone) por meio de formulários de contato, além de dados de
-            navegação via cookies analíticos e de marketing.
+            Responsável: Marco Antônio de Vicente Júnior (Dr. Marco Vicenzo),
+            candidato a Deputado Distrital pelo PSD nas Eleições 2026 — número
+            55.678. CPF: {siteConfig.cpfResponsavel}.
+            Contato: <a href={`mailto:${siteConfig.contactEmail}`} className="text-zinc-900 underline">{siteConfig.contactEmail}</a>.
           </p>
         </section>
 
         <section>
           <h2 className="text-xl font-semibold text-zinc-800">
-            2. Finalidade
+            2. Dados Coletados
           </h2>
           <p>
-            Os dados coletados são utilizados para: atendimento ao cliente,
-            envio de comunicações relevantes, análise de performance do site e
-            veiculação de publicidade segmentada (Google Ads, Meta Ads).
+            Coletamos dados pessoais fornecidos voluntariamente (nome, telefone
+            e/ou e-mail) por meio do formulário de contato. Também coletamos
+            dados de navegação via cookies analíticos para medir o desempenho
+            do site.
           </p>
         </section>
 
         <section>
           <h2 className="text-xl font-semibold text-zinc-800">
-            3. Cookies e Tecnologias
+            3. Finalidade
           </h2>
           <p>
-            Utilizamos Google Tag Manager, Google Analytics 4, Microsoft
-            Clarity, Meta Pixel e Microsoft Ads para análise e remarketing.
-            Você pode recusar cookies não essenciais pelo banner de consentimento
-            exibido na primeira visita.
+            Os dados coletados são utilizados exclusivamente para comunicações
+            relacionadas à campanha eleitoral de Dr. Marco Vicenzo — informações,
+            atualizações e materiais da candidatura. Não utilizamos os dados para
+            publicidade comercial, nem os compartilhamos com terceiros para fins
+            comerciais.
           </p>
         </section>
 
         <section>
           <h2 className="text-xl font-semibold text-zinc-800">
-            4. Compartilhamento
+            4. Cookies e Tecnologias de Análise
           </h2>
           <p>
-            Não vendemos dados pessoais. Podemos compartilhá-los com parceiros
-            tecnológicos (Google, Meta, Microsoft) exclusivamente para as
-            finalidades descritas acima.
+            Utilizamos Google Tag Manager e Microsoft Clarity exclusivamente
+            para análise de desempenho e navegação no site. Não utilizamos
+            cookies para publicidade segmentada. Você pode recusar cookies não
+            essenciais pelo banner de consentimento exibido na primeira visita.
           </p>
         </section>
 
         <section>
           <h2 className="text-xl font-semibold text-zinc-800">
-            5. Seus Direitos (LGPD)
+            5. Compartilhamento
+          </h2>
+          <p>
+            Não vendemos nem cedemos dados pessoais a terceiros. Os dados de
+            navegação são processados por ferramentas analíticas (Google, Microsoft)
+            exclusivamente para medição de desempenho, em conformidade com suas
+            respectivas políticas de privacidade.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-xl font-semibold text-zinc-800">
+            6. Seus Direitos (LGPD — Lei 13.709/2018)
           </h2>
           <p>
             Você tem direito a acessar, corrigir, excluir ou portar seus dados,
-            além de revogar o consentimento a qualquer momento. Entre em contato
-            via{" "}
-            {siteConfig.contactEmail ? (
-              <a
-                href={`mailto:${siteConfig.contactEmail}`}
-                className="text-zinc-900 underline"
-              >
-                {siteConfig.contactEmail}
-              </a>
-            ) : (
-              "nossos canais de atendimento"
-            )}
+            além de revogar o consentimento a qualquer momento. Para exercer
+            seus direitos, entre em contato pelo e-mail{" "}
+            <a
+              href={`mailto:${siteConfig.contactEmail}`}
+              className="text-zinc-900 underline"
+            >
+              {siteConfig.contactEmail}
+            </a>
             .
           </p>
         </section>
 
         <section>
           <h2 className="text-xl font-semibold text-zinc-800">
-            6. Retenção de Dados
+            7. Retenção de Dados
           </h2>
           <p>
-            Dados são mantidos pelo período necessário à finalidade e conforme
-            exigido por lei. Após esse prazo, são eliminados de forma segura.
+            Os dados são mantidos pelo período da campanha eleitoral e pelo
+            prazo legal exigido pela legislação eleitoral e pela LGPD. Após
+            esse prazo, são eliminados de forma segura.
           </p>
         </section>
 

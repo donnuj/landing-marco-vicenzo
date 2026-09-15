@@ -81,10 +81,10 @@ export function Footer() {
 
         <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-white/40 text-center sm:text-left">
-            &copy; 2026 Dr. Marco Vicenzo — Material de campanha eleitoral.
+            &copy; 2026 Dr. Marco Vicenzo — Propaganda Eleitoral. Material de campanha.
           </p>
           <p className="text-xs text-white/40 text-center sm:text-right max-w-sm">
-            Os dados fornecidos através do formulário de contato são utilizados exclusivamente para comunicações relacionadas à campanha.
+            Responsável: Marco Antônio de Vicente Júnior — CPF: {siteConfig.cpfResponsavel}. Os dados do formulário são usados exclusivamente para comunicações de campanha (LGPD).
           </p>
         </div>
       </div>

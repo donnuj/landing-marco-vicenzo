@@ -7,7 +7,8 @@ export const siteConfig = {
   phone: "5561992693187",
   whatsappMessage:
     "Olá, Dr. Marco Vicenzo! Vim pelo site e gostaria de mais informações sobre sua candidatura.",
-  contactEmail: "",
+  contactEmail: "contato@marcovicenzo.com.br",
+  cpfResponsavel: "000.000.000-00",
   alertContacts: (process.env.NEXT_PUBLIC_ALERT_CONTACTS ?? "").split(","),
   instagram: "https://instagram.com/vicenzodf",
   instagramNews: "https://instagram.com/vicenzonews",
