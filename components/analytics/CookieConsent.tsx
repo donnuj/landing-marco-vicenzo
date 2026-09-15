@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { track } from "@/lib/tracking";
+
 const CONSENT_KEY = "cookie_consent";
 
 type ConsentState = "accepted" | "declined" | null;
@@ -30,6 +32,7 @@ export function CookieConsent() {
     localStorage.setItem(CONSENT_KEY, "accepted");
     setConsent("accepted");
     setVisible(false);
+    track.custom("cookie_consent", { action: "accepted" });
     window.dataLayer = window.dataLayer ?? [];
     window.dataLayer.push({ event: "consent_accepted" });
   }
@@ -38,6 +41,7 @@ export function CookieConsent() {
     localStorage.setItem(CONSENT_KEY, "declined");
     setConsent("declined");
     setVisible(false);
+    track.custom("cookie_consent", { action: "declined" });
   }
 
   // Suppress unused variable warning

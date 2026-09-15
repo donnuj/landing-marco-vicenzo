@@ -1,17 +1,24 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { track } from "@/lib/tracking";
 import { siteConfig } from "@/lib/config";
 
 export function WhatsAppButton() {
   const text = encodeURIComponent(siteConfig.whatsappMessage);
   const href = `${siteConfig.whatsappDirect}?text=${text}`;
 
+  function handleClick() {
+    track.whatsappClick("floating");
+    track.lead("whatsapp", "floating");
+  }
+
   return (
     <motion.a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={handleClick}
       aria-label="Falar pelo WhatsApp"
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
