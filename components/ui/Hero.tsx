@@ -8,45 +8,38 @@ export function Hero() {
       className="min-h-[100dvh] relative overflow-hidden pt-16"
       style={{ background: "#f4f6fb" }}
     >
-      {/* Photo: fills right half absolutely */}
-      <div className="absolute right-0 top-16 bottom-0 w-full md:w-[52%] hidden md:block">
+      {/* Photo: full-bleed behind everything, no container visible */}
+      <div className="absolute inset-0 top-16">
         <img
           src="/fotos/hero.jpg"
           alt="Dr. Marco Vicenzo"
           className="w-full h-full object-cover"
-          style={{ objectPosition: "center 8%" }}
+          style={{ objectPosition: "68% 8%" }}
         />
-        {/* Blend gradient on left edge */}
+
+        {/* Desktop: left fade — page bg bleeds into photo, no hard edge */}
         <div
-          className="absolute inset-y-0 left-0 w-72"
-          style={{ background: "linear-gradient(to right, #f4f6fb 0%, #f4f6fb 10%, transparent)" }}
+          className="hidden md:block absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to right, #f4f6fb 28%, rgba(244,246,251,0.88) 44%, rgba(244,246,251,0.35) 62%, transparent 100%)",
+          }}
         />
-        {/* Dark gradient at bottom */}
+
+        {/* Mobile: top fade — page bg covers text area, photo emerges below */}
         <div
-          className="absolute bottom-0 left-0 right-0 h-36"
-          style={{ background: "linear-gradient(to top, rgba(4,13,30,0.72), transparent)" }}
+          className="md:hidden absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to bottom, #f4f6fb 32%, rgba(244,246,251,0.82) 52%, rgba(244,246,251,0.18) 72%, transparent 100%)",
+          }}
         />
-        {/* Number badge */}
-        <motion.div
-          className="absolute bottom-8 right-8"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-        >
-          <p
-            className="font-black leading-none tracking-tighter"
-            style={{
-              fontSize: "clamp(36px,5vw,60px)",
-              color: "#D2540B",
-              textShadow: "0 2px 20px rgba(0,0,0,0.4)",
-            }}
-          >
-            55.678
-          </p>
-          <p className="text-white/70 text-xs font-bold uppercase tracking-widest mt-1">
-            Deputado Distrital
-          </p>
-        </motion.div>
+
+        {/* Bottom dark vignette for number badge area */}
+        <div
+          className="absolute bottom-0 left-0 right-0 h-44"
+          style={{ background: "linear-gradient(to top, rgba(4,13,30,0.6), transparent)" }}
+        />
       </div>
 
       {/* Text — left column */}
@@ -163,23 +156,27 @@ export function Hero() {
         </motion.div>
       </div>
 
-      {/* Mobile: photo below text */}
-      <div className="md:hidden relative w-full overflow-hidden" style={{ height: "360px" }}>
-        <img
-          src="/fotos/hero.jpg"
-          alt="Dr. Marco Vicenzo"
-          className="w-full h-full object-cover"
-          style={{ objectPosition: "center 10%" }}
-        />
-        <div
-          className="absolute top-0 left-0 right-0 h-16"
-          style={{ background: "linear-gradient(to bottom, #f4f6fb, transparent)" }}
-        />
-        <div
-          className="absolute bottom-0 left-0 right-0 h-24"
-          style={{ background: "linear-gradient(to top, #f4f6fb, transparent)" }}
-        />
-      </div>
+      {/* Number badge: anchored bottom-right, above dark vignette */}
+      <motion.div
+        className="hidden md:block absolute bottom-8 right-10 z-10"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.5 }}
+      >
+        <p
+          className="font-black leading-none tracking-tighter"
+          style={{
+            fontSize: "clamp(36px,5vw,60px)",
+            color: "#D2540B",
+            textShadow: "0 2px 20px rgba(0,0,0,0.4)",
+          }}
+        >
+          55.678
+        </p>
+        <p className="text-white/70 text-xs font-bold uppercase tracking-widest mt-1">
+          Deputado Distrital
+        </p>
+      </motion.div>
     </section>
   );
 }
