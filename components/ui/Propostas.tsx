@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const posicionamentos = [
   {
     categoria: "Transparência Pública",
-    cor: "#003087",
+    cor: "#0e7c3f",
     itens: [
       {
         titulo: "Fiscalização do poder público",
@@ -15,7 +15,7 @@ const posicionamentos = [
   },
   {
     categoria: "Direitos do Cidadão",
-    cor: "#4E9E39",
+    cor: "#D2540B",
     itens: [
       {
         titulo: "Defesa dos direitos dos moradores do DF",
@@ -31,7 +31,7 @@ const posicionamentos = [
   },
   {
     categoria: "Comunicação e Mobilização",
-    cor: "#F5A623",
+    cor: "#D2540B",
     itens: [
       {
         titulo: "Canal direto com o cidadão",
@@ -55,17 +55,17 @@ export function Propostas() {
         >
           <span
             className="text-xs font-bold tracking-widest uppercase block mb-3"
-            style={{ color: "#4E9E39", fontFamily: "'Barlow Condensed', sans-serif" }}
+            style={{ color: "#D2540B", fontFamily: "'Barlow Condensed', sans-serif" }}
           >
             Posicionamentos e ideias
           </span>
           <h2
             className="text-4xl sm:text-5xl font-black uppercase leading-none mb-4"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif", color: "#001A4D" }}
+            style={{ fontFamily: "'Barlow Condensed', sans-serif", color: "#063d20" }}
           >
             Propostas
           </h2>
-          <div className="w-16 h-1 mb-6" style={{ background: "#F5A623" }} />
+          <div className="w-16 h-1 mb-6" style={{ background: "#D2540B" }} />
           <p className="text-sm text-gray-500 max-w-xl leading-relaxed italic">
             Os posicionamentos abaixo são baseados em atuação pública documentada e declarações oficiais do candidato. As propostas legislativas formais serão apresentadas durante a campanha.
           </p>
@@ -99,7 +99,7 @@ export function Propostas() {
                   >
                     <h4
                       className="text-lg font-bold mb-2"
-                      style={{ fontFamily: "'Barlow Condensed', sans-serif", color: "#001A4D", fontSize: "1.15rem" }}
+                      style={{ fontFamily: "'Barlow Condensed', sans-serif", color: "#063d20", fontSize: "1.15rem" }}
                     >
                       {item.titulo}
                     </h4>

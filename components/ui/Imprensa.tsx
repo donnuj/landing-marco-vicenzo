@@ -24,7 +24,7 @@ const veiculos = [
     nome: "Jusbrasil",
     descricao: "Perfil jurídico e publicações do Dr. Marco Vicenzo na plataforma de direito mais acessada do Brasil.",
     url: "https://drmarcovicenzo.jusbrasil.com.br/",
-    cor: "#003087",
+    cor: "#0e7c3f",
   },
   {
     nome: "LinkedIn",
@@ -53,17 +53,17 @@ export function Imprensa() {
         >
           <span
             className="text-xs font-bold tracking-widest uppercase block mb-3"
-            style={{ color: "#4E9E39", fontFamily: "'Barlow Condensed', sans-serif" }}
+            style={{ color: "#D2540B", fontFamily: "'Barlow Condensed', sans-serif" }}
           >
             Cobertura e referências
           </span>
           <h2
             className="text-4xl sm:text-5xl font-black uppercase leading-none mb-4"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif", color: "#001A4D" }}
+            style={{ fontFamily: "'Barlow Condensed', sans-serif", color: "#063d20" }}
           >
             Imprensa e Fontes
           </h2>
-          <div className="w-16 h-1 mb-4" style={{ background: "#F5A623" }} />
+          <div className="w-16 h-1 mb-4" style={{ background: "#D2540B" }} />
           <p className="text-sm text-gray-500 max-w-lg leading-relaxed">
             Fontes externas com informações públicas sobre Dr. Marco Vicenzo. Cada link direciona para a fonte original.
           </p>

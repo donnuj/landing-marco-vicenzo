@@ -3,7 +3,7 @@ import { siteConfig } from "@/lib/config";
 export function Footer() {
   return (
     <footer style={{ background: "#040d1e" }} className="text-white">
-      <div className="h-1 w-full" style={{ background: "#FCB736" }} />
+      <div className="h-1 w-full" style={{ background: "#D2540B" }} />
       <div className="mx-auto max-w-6xl px-4 sm:px-6 py-12">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-8">
           {/* Identidade */}
@@ -20,7 +20,7 @@ export function Footer() {
             </div>
             <span
               className="inline-block px-3 py-1 text-xs font-bold tracking-widest"
-              style={{ background: "#F5A623", color: "#001A4D", fontFamily: "'Barlow Condensed', sans-serif" }}
+              style={{ background: "#D2540B", color: "#063d20", fontFamily: "'Barlow Condensed', sans-serif" }}
             >
               55.678
             </span>

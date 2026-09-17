@@ -11,13 +11,13 @@ export function Hero() {
       {/* Yellow top bar */}
       <div
         className="absolute top-16 left-0 right-0 h-0.5 z-20"
-        style={{ background: "#FCB736" }}
+        style={{ background: "#D2540B" }}
       />
 
       {/* Blue vertical accent left */}
       <div
         className="absolute left-0 top-0 bottom-0 w-1.5 z-20"
-        style={{ background: "#0A4185" }}
+        style={{ background: "#0e7c3f" }}
       />
 
       {/* Photo: fills right half absolutely */}
@@ -49,7 +49,7 @@ export function Hero() {
             className="font-black leading-none tracking-tighter"
             style={{
               fontSize: "clamp(36px,5vw,60px)",
-              color: "#FCB736",
+              color: "#D2540B",
               textShadow: "0 2px 20px rgba(0,0,0,0.4)",
             }}
           >
@@ -72,24 +72,24 @@ export function Hero() {
           <div
             className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-8 text-[11px] font-bold uppercase"
             style={{
-              background: "rgba(10,65,133,0.07)",
-              color: "#0A4185",
-              border: "1px solid rgba(10,65,133,0.14)",
+              background: "rgba(14,124,63,0.07)",
+              color: "#0e7c3f",
+              border: "1px solid rgba(14,124,63,0.14)",
               letterSpacing: "0.18em",
             }}
           >
             <span
               className="w-1.5 h-1.5 rounded-full inline-block"
-              style={{ background: "#80C24F" }}
+              style={{ background: "#5ab843" }}
             />
             PSD · Deputado Distrital · DF 2026
           </div>
 
           <p
             className="font-black leading-none tracking-tighter"
-            style={{ fontSize: "clamp(80px,11vw,128px)", color: "#0A4185" }}
+            style={{ fontSize: "clamp(80px,11vw,128px)", color: "#0e7c3f" }}
           >
-            55<span style={{ color: "#FCB736" }}>.</span>678
+            55<span style={{ color: "#D2540B" }}>.</span>678
           </p>
 
           <h1
@@ -117,7 +117,7 @@ export function Hero() {
               style={{
                 fontSize: "13px",
                 padding: "14px 28px",
-                background: "#0A4185",
+                background: "#0e7c3f",
               }}
             >
               CONHEÇA A TRAJETÓRIA
@@ -130,8 +130,8 @@ export function Hero() {
               style={{
                 fontSize: "13px",
                 padding: "14px 28px",
-                background: "#FCB736",
-                color: "#062d6b",
+                background: "#D2540B",
+                color: "#063d20",
               }}
             >
               FALAR COM A EQUIPE

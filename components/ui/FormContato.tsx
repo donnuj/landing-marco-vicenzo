@@ -43,17 +43,17 @@ export function FormContato() {
         >
           <span
             className="text-xs font-bold tracking-widest uppercase block mb-3"
-            style={{ color: "#4E9E39", fontFamily: "'Barlow Condensed', sans-serif" }}
+            style={{ color: "#D2540B", fontFamily: "'Barlow Condensed', sans-serif" }}
           >
             Formulário
           </span>
           <h2
             className="text-4xl sm:text-5xl font-black uppercase leading-none mb-4"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif", color: "#001A4D" }}
+            style={{ fontFamily: "'Barlow Condensed', sans-serif", color: "#063d20" }}
           >
             Deixe seu Contato
           </h2>
-          <div className="w-16 h-1 mb-8" style={{ background: "#F5A623" }} />
+          <div className="w-16 h-1 mb-8" style={{ background: "#D2540B" }} />
 
           {/* Aviso de transparência */}
           <div
@@ -86,7 +86,7 @@ export function FormContato() {
                   value={nome}
                   onChange={(e) => setNome(e.target.value)}
                   placeholder="Seu nome"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-sm text-sm focus:outline-none focus:border-[#003087] transition-colors"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-sm text-sm focus:outline-none focus:border-[#0e7c3f] transition-colors"
                 />
               </div>
 
@@ -101,7 +101,7 @@ export function FormContato() {
                   value={contato}
                   onChange={(e) => setContato(e.target.value)}
                   placeholder="(61) 9xxxx-xxxx ou seu@email.com"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-sm text-sm focus:outline-none focus:border-[#003087] transition-colors"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-sm text-sm focus:outline-none focus:border-[#0e7c3f] transition-colors"
                 />
               </div>
 
@@ -115,7 +115,7 @@ export function FormContato() {
                   value={mensagem}
                   onChange={(e) => setMensagem(e.target.value)}
                   placeholder="Escreva sua mensagem, dúvida ou sugestão..."
-                  className="w-full px-4 py-3 border border-gray-300 rounded-sm text-sm focus:outline-none focus:border-[#003087] transition-colors resize-none"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-sm text-sm focus:outline-none focus:border-[#0e7c3f] transition-colors resize-none"
                 />
               </div>
 
@@ -125,7 +125,7 @@ export function FormContato() {
                   type="checkbox"
                   checked={aceite}
                   onChange={(e) => setAceite(e.target.checked)}
-                  className="mt-1 w-4 h-4 flex-shrink-0 accent-[#003087]"
+                  className="mt-1 w-4 h-4 flex-shrink-0 accent-[#0e7c3f]"
                   required
                 />
                 <label htmlFor="aceite" className="text-sm text-gray-600 leading-relaxed cursor-pointer">
@@ -141,7 +141,7 @@ export function FormContato() {
                 type="submit"
                 disabled={!aceite || status === "sending"}
                 className="w-full py-4 font-bold text-white rounded-sm transition-opacity hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
-                style={{ background: "#003087", fontFamily: "'Barlow Condensed', sans-serif", fontSize: "1.1rem", letterSpacing: "0.08em" }}
+                style={{ background: "#0e7c3f", fontFamily: "'Barlow Condensed', sans-serif", fontSize: "1.1rem", letterSpacing: "0.08em" }}
               >
                 {status === "sending" ? "ENVIANDO..." : "ENVIAR"}
               </button>

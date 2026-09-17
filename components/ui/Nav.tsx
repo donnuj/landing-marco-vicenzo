@@ -18,13 +18,13 @@ export function Nav() {
         <a href="#" className="flex items-center gap-1">
           <span
             className="font-black tracking-tight"
-            style={{ color: "#0A4185", fontSize: "17px" }}
+            style={{ color: "#0e7c3f", fontSize: "17px" }}
           >
             DR. MARCO
           </span>
           <span
             className="font-black tracking-tight ml-1"
-            style={{ color: "#FCB736", fontSize: "17px" }}
+            style={{ color: "#D2540B", fontSize: "17px" }}
           >
             VICENZO
           </span>
@@ -41,7 +41,7 @@ export function Nav() {
             target="_blank"
             rel="noopener noreferrer"
             className="text-[12px] font-bold px-5 py-2 rounded text-white transition-all hover:opacity-90 active:scale-[0.97]"
-            style={{ background: "#0A4185" }}
+            style={{ background: "#0e7c3f" }}
           >
             WHATSAPP
           </a>
@@ -51,7 +51,7 @@ export function Nav() {
           className="md:hidden p-2"
           onClick={() => setOpen(!open)}
           aria-label="Menu"
-          style={{ color: "#0A4185" }}
+          style={{ color: "#0e7c3f" }}
         >
           <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
             {open ? (
@@ -80,7 +80,7 @@ export function Nav() {
             target="_blank"
             rel="noopener noreferrer"
             className="mt-4 block text-center py-3 font-bold rounded text-sm text-white"
-            style={{ background: "#0A4185" }}
+            style={{ background: "#0e7c3f" }}
           >
             WHATSAPP
           </a>

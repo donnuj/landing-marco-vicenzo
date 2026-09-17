@@ -36,7 +36,7 @@ const areas = [
 
 export function Atuacao() {
   return (
-    <section id="atuacao" className="py-20 sm:py-28" style={{ background: "#001A4D" }}>
+    <section id="atuacao" className="py-20 sm:py-28" style={{ background: "#063d20" }}>
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -47,7 +47,7 @@ export function Atuacao() {
         >
           <span
             className="text-xs font-bold tracking-widest uppercase block mb-3"
-            style={{ color: "#4E9E39", fontFamily: "'Barlow Condensed', sans-serif" }}
+            style={{ color: "#D2540B", fontFamily: "'Barlow Condensed', sans-serif" }}
           >
             Campos de atuação
           </span>
@@ -57,7 +57,7 @@ export function Atuacao() {
           >
             Atuação
           </h2>
-          <div className="w-16 h-1" style={{ background: "#F5A623" }} />
+          <div className="w-16 h-1" style={{ background: "#D2540B" }} />
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">

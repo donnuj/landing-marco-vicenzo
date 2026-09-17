@@ -6,37 +6,37 @@ const eventos = [
     periodo: "Formação",
     titulo: "Bacharel em Direito",
     descricao: "Graduação em Direito pelo UniCEUB — Centro Universitário de Brasília, com registro na OAB/DF.",
-    cor: "#003087",
+    cor: "#0e7c3f",
   },
   {
     periodo: "Carreira jurídica",
     titulo: "Procurador de Justiça — TJDDF",
     descricao: "Atuou como Procurador de Justiça no Tribunal de Justiça do Distrito Federal e Territórios, com experiência em defesa e assessoria jurídica.",
-    cor: "#003087",
+    cor: "#0e7c3f",
   },
   {
     periodo: "Setor público",
     titulo: "Servidor da Câmara Federal",
     descricao: "Servidor público federal na Câmara dos Deputados, acumulando experiência institucional no Legislativo federal.",
-    cor: "#003087",
+    cor: "#0e7c3f",
   },
   {
     periodo: "Assessoria política",
     titulo: "Assessor do Senador José Reguffe",
     descricao: "Atuou como assessor do ex-senador José Reguffe, adquirindo vivência direta no funcionamento do Senado Federal e das demandas do Distrito Federal.",
-    cor: "#4E9E39",
+    cor: "#D2540B",
   },
   {
     periodo: "Comunicação",
     titulo: "Fundação do Vicenzo News",
     descricao: "Criação do canal de jornalismo @vicenzonews, com foco em transparência, fiscalização do poder público e informação para o cidadão do DF. Mais de 108 mil seguidores.",
-    cor: "#4E9E39",
+    cor: "#D2540B",
   },
   {
     periodo: "Candidatura 2026",
     titulo: "Candidato a Deputado Distrital — PSD nº 55.678",
     descricao: "Lança candidatura a Deputado Distrital pelo Partido Social Democrático (PSD), partido nº 55, com o número 55.678, para as eleições de 2026 no Distrito Federal.",
-    cor: "#F5A623",
+    cor: "#D2540B",
   },
 ];
 
@@ -53,17 +53,17 @@ export function Trajetoria() {
         >
           <span
             className="text-xs font-bold tracking-widest uppercase block mb-3"
-            style={{ color: "#4E9E39", fontFamily: "'Barlow Condensed', sans-serif" }}
+            style={{ color: "#D2540B", fontFamily: "'Barlow Condensed', sans-serif" }}
           >
             Percurso
           </span>
           <h2
             className="text-4xl sm:text-5xl font-black uppercase leading-none mb-4"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif", color: "#001A4D" }}
+            style={{ fontFamily: "'Barlow Condensed', sans-serif", color: "#063d20" }}
           >
             Trajetória
           </h2>
-          <div className="w-16 h-1" style={{ background: "#F5A623" }} />
+          <div className="w-16 h-1" style={{ background: "#D2540B" }} />
         </motion.div>
 
         <div className="relative">
@@ -98,7 +98,7 @@ export function Trajetoria() {
                   </span>
                   <h3
                     className="text-xl sm:text-2xl font-bold mb-2"
-                    style={{ fontFamily: "'Barlow Condensed', sans-serif", color: "#001A4D" }}
+                    style={{ fontFamily: "'Barlow Condensed', sans-serif", color: "#063d20" }}
                   >
                     {e.titulo}
                   </h3>

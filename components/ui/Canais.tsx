@@ -83,17 +83,17 @@ export function Canais() {
         >
           <span
             className="text-xs font-bold tracking-widest uppercase block mb-3"
-            style={{ color: "#4E9E39", fontFamily: "'Barlow Condensed', sans-serif" }}
+            style={{ color: "#D2540B", fontFamily: "'Barlow Condensed', sans-serif" }}
           >
             Canais oficiais
           </span>
           <h2
             className="text-4xl sm:text-5xl font-black uppercase leading-none mb-4"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif", color: "#001A4D" }}
+            style={{ fontFamily: "'Barlow Condensed', sans-serif", color: "#063d20" }}
           >
             Redes Sociais
           </h2>
-          <div className="w-16 h-1" style={{ background: "#F5A623" }} />
+          <div className="w-16 h-1" style={{ background: "#D2540B" }} />
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -115,7 +115,7 @@ export function Canais() {
                 <div className="text-xs font-medium mb-1" style={{ color: c.cor }}>{c.handle}</div>
                 <div className="text-xs text-gray-500">{c.desc}</div>
                 {c.seguidores && (
-                  <div className="text-xs font-semibold mt-1" style={{ color: "#4E9E39" }}>{c.seguidores}</div>
+                  <div className="text-xs font-semibold mt-1" style={{ color: "#D2540B" }}>{c.seguidores}</div>
                 )}
               </div>
             </motion.a>
