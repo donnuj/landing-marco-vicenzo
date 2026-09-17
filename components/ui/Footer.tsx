@@ -2,7 +2,8 @@ import { siteConfig } from "@/lib/config";
 
 export function Footer() {
   return (
-    <footer style={{ background: "#001A4D" }} className="text-white">
+    <footer style={{ background: "#040d1e" }} className="text-white">
+      <div className="h-1 w-full" style={{ background: "#FCB736" }} />
       <div className="mx-auto max-w-6xl px-4 sm:px-6 py-12">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-8">
           {/* Identidade */}

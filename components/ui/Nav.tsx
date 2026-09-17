@@ -1,54 +1,38 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { siteConfig } from "@/lib/config";
 
 const links = [
   { href: "#quem-e", label: "Quem é" },
   { href: "#trajetoria", label: "Trajetória" },
   { href: "#propostas", label: "Propostas" },
-  { href: "#imprensa", label: "Imprensa" },
   { href: "#contato", label: "Contato" },
 ];
 
 export function Nav() {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
-  useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", handler, { passive: true });
-    return () => window.removeEventListener("scroll", handler);
-  }, []);
-
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-[#001A4D] shadow-lg" : "bg-transparent"
-      }`}
-    >
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-zinc-100">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 flex items-center justify-between h-16">
-        <a href="#" className="flex items-center gap-2" aria-label="Dr. Marco Vicenzo">
+        <a href="#" className="flex items-center gap-1">
           <span
-            className="font-display text-white text-xl font-bold tracking-wider"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "1.25rem", letterSpacing: "0.08em" }}
+            className="font-black tracking-tight"
+            style={{ color: "#0A4185", fontSize: "17px" }}
           >
-            DR. VICENZO
+            DR. MARCO
           </span>
           <span
-            className="text-xs font-bold px-2 py-0.5 rounded-sm"
-            style={{ background: "#F5A623", color: "#001A4D", fontFamily: "'Barlow Condensed', sans-serif", letterSpacing: "0.1em" }}
+            className="font-black tracking-tight ml-1"
+            style={{ color: "#FCB736", fontSize: "17px" }}
           >
-            55.678
+            VICENZO
           </span>
         </a>
 
-        <nav className="hidden md:flex items-center gap-6">
+        <nav className="hidden md:flex items-center gap-7 text-[12px] font-bold text-zinc-400 uppercase tracking-widest">
           {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="text-white/80 hover:text-white text-sm font-medium transition-colors"
-            >
+            <a key={l.href} href={l.href} className="hover:text-zinc-700 transition-colors">
               {l.label}
             </a>
           ))}
@@ -56,17 +40,18 @@ export function Nav() {
             href={siteConfig.whatsappDirect}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 text-sm font-bold rounded-sm transition-colors"
-            style={{ background: "#4E9E39", color: "#fff", fontFamily: "'Barlow Condensed', sans-serif", letterSpacing: "0.05em" }}
+            className="text-[12px] font-bold px-5 py-2 rounded text-white transition-all hover:opacity-90 active:scale-[0.97]"
+            style={{ background: "#0A4185" }}
           >
             WHATSAPP
           </a>
         </nav>
 
         <button
-          className="md:hidden text-white p-2"
+          className="md:hidden p-2"
           onClick={() => setOpen(!open)}
           aria-label="Menu"
+          style={{ color: "#0A4185" }}
         >
           <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
             {open ? (
@@ -79,13 +64,13 @@ export function Nav() {
       </div>
 
       {open && (
-        <div className="md:hidden bg-[#001A4D] border-t border-white/10 px-4 pb-4">
+        <div className="md:hidden bg-white border-t border-zinc-100 px-4 pb-4">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
-              className="block py-3 text-white/80 hover:text-white text-base font-medium border-b border-white/10 last:border-0"
+              className="block py-3 text-zinc-600 hover:text-zinc-900 text-sm font-medium border-b border-zinc-100 last:border-0"
             >
               {l.label}
             </a>
@@ -94,8 +79,8 @@ export function Nav() {
             href={siteConfig.whatsappDirect}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 block text-center py-3 font-bold rounded-sm"
-            style={{ background: "#4E9E39", color: "#fff", fontFamily: "'Barlow Condensed', sans-serif" }}
+            className="mt-4 block text-center py-3 font-bold rounded text-sm text-white"
+            style={{ background: "#0A4185" }}
           >
             WHATSAPP
           </a>
