@@ -8,18 +8,6 @@ export function Hero() {
       className="min-h-[100dvh] relative overflow-hidden pt-16"
       style={{ background: "#f4f6fb" }}
     >
-      {/* Yellow top bar */}
-      <div
-        className="absolute top-16 left-0 right-0 h-0.5 z-20"
-        style={{ background: "#D2540B" }}
-      />
-
-      {/* Blue vertical accent left */}
-      <div
-        className="absolute left-0 top-0 bottom-0 w-1.5 z-20"
-        style={{ background: "#0e7c3f" }}
-      />
-
       {/* Photo: fills right half absolutely */}
       <div className="absolute right-0 top-16 bottom-0 w-full md:w-[52%] hidden md:block">
         <img
@@ -30,8 +18,8 @@ export function Hero() {
         />
         {/* Blend gradient on left edge */}
         <div
-          className="absolute inset-y-0 left-0 w-48"
-          style={{ background: "linear-gradient(to right, #f4f6fb, transparent)" }}
+          className="absolute inset-y-0 left-0 w-72"
+          style={{ background: "linear-gradient(to right, #f4f6fb 0%, #f4f6fb 10%, transparent)" }}
         />
         {/* Dark gradient at bottom */}
         <div
@@ -176,7 +164,7 @@ export function Hero() {
       </div>
 
       {/* Mobile: photo below text */}
-      <div className="md:hidden relative w-full" style={{ height: "280px" }}>
+      <div className="md:hidden relative w-full overflow-hidden" style={{ height: "360px" }}>
         <img
           src="/fotos/hero.jpg"
           alt="Dr. Marco Vicenzo"
@@ -184,7 +172,11 @@ export function Hero() {
           style={{ objectPosition: "center 10%" }}
         />
         <div
-          className="absolute bottom-0 left-0 right-0 h-20"
+          className="absolute top-0 left-0 right-0 h-16"
+          style={{ background: "linear-gradient(to bottom, #f4f6fb, transparent)" }}
+        />
+        <div
+          className="absolute bottom-0 left-0 right-0 h-24"
           style={{ background: "linear-gradient(to top, #f4f6fb, transparent)" }}
         />
       </div>
