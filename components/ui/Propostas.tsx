@@ -44,7 +44,7 @@ const posicionamentos = [
 
 export function Propostas() {
   return (
-    <section id="propostas" className="py-20 sm:py-28" style={{ background: "#F5F7FA" }}>
+    <section id="propostas" className="py-20 sm:py-28" style={{ background: "var(--bg-alt)" }}>
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -61,12 +61,12 @@ export function Propostas() {
           </span>
           <h2
             className="text-4xl sm:text-5xl font-black uppercase leading-none mb-4"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif", color: "#063d20" }}
+            style={{ fontFamily: "'Barlow Condensed', sans-serif", color: "var(--text)" }}
           >
             Propostas
           </h2>
           <div className="w-16 h-1 mb-6" style={{ background: "#D2540B" }} />
-          <p className="text-sm text-gray-500 max-w-xl leading-relaxed italic">
+          <p className="text-sm text-gray-500 dark:text-slate-400 max-w-xl leading-relaxed italic">
             Os posicionamentos abaixo são baseados em atuação pública documentada e declarações oficiais do candidato. As propostas legislativas formais serão apresentadas durante a campanha.
           </p>
         </motion.div>
@@ -94,8 +94,8 @@ export function Propostas() {
                 {bloco.itens.map((item) => (
                   <div
                     key={item.titulo}
-                    className="bg-white rounded-sm p-5 border-l-4"
-                    style={{ borderColor: bloco.cor, boxShadow: "0 1px 8px rgba(0,0,0,0.06)" }}
+                    className="rounded-sm p-5 border-l-4"
+                    style={{ background: "var(--bg-surface)", borderColor: bloco.cor, boxShadow: "0 1px 8px rgba(0,0,0,0.08)" }}
                   >
                     <h4
                       className="text-lg font-bold mb-2"
@@ -103,8 +103,8 @@ export function Propostas() {
                     >
                       {item.titulo}
                     </h4>
-                    <p className="text-sm text-gray-600 leading-relaxed mb-3">{item.descricao}</p>
-                    <p className="text-xs text-gray-400 italic">{item.fonte}</p>
+                    <p className="text-sm text-gray-600 dark:text-slate-400 leading-relaxed mb-3">{item.descricao}</p>
+                    <p className="text-xs text-gray-400 dark:text-slate-500 italic">{item.fonte}</p>
                   </div>
                 ))}
               </div>

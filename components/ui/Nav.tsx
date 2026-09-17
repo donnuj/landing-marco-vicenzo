@@ -13,7 +13,7 @@ export function Nav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-zinc-100">
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-zinc-100 dark:border-white/10" style={{ background: "var(--bg-surface)" }}>
       <div className="mx-auto max-w-6xl px-4 sm:px-6 flex items-center justify-between h-16">
         <a href="#" className="flex items-center gap-1">
           <span
@@ -64,13 +64,13 @@ export function Nav() {
       </div>
 
       {open && (
-        <div className="md:hidden bg-white border-t border-zinc-100 px-4 pb-4">
+        <div className="md:hidden border-t border-zinc-100 dark:border-white/10 px-4 pb-4" style={{ background: "var(--bg-surface)" }}>
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
-              className="block py-3 text-zinc-600 hover:text-zinc-900 text-sm font-medium border-b border-zinc-100 last:border-0"
+              className="block py-3 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white text-sm font-medium border-b border-zinc-100 dark:border-white/10 last:border-0"
             >
               {l.label}
             </a>

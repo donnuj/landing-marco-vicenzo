@@ -42,7 +42,7 @@ const veiculos = [
 
 export function Imprensa() {
   return (
-    <section id="imprensa" className="py-20 sm:py-28 bg-white">
+    <section id="imprensa" className="py-20 sm:py-28" style={{ background: "var(--bg-surface)" }}>
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -59,12 +59,12 @@ export function Imprensa() {
           </span>
           <h2
             className="text-4xl sm:text-5xl font-black uppercase leading-none mb-4"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif", color: "#063d20" }}
+            style={{ fontFamily: "'Barlow Condensed', sans-serif", color: "var(--text)" }}
           >
             Imprensa e Fontes
           </h2>
           <div className="w-16 h-1 mb-4" style={{ background: "#D2540B" }} />
-          <p className="text-sm text-gray-500 max-w-lg leading-relaxed">
+          <p className="text-sm text-gray-500 dark:text-slate-400 max-w-lg leading-relaxed">
             Fontes externas com informações públicas sobre Dr. Marco Vicenzo. Cada link direciona para a fonte original.
           </p>
         </motion.div>
@@ -80,7 +80,8 @@ export function Imprensa() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.06 }}
-              className="group flex flex-col gap-3 bg-white rounded-sm p-5 border border-gray-100 hover:border-gray-300 hover:shadow-md transition-all"
+              className="group flex flex-col gap-3 rounded-sm p-5 border border-gray-100 dark:border-white/10 hover:border-gray-300 dark:hover:border-white/25 hover:shadow-md transition-all"
+              style={{ background: "var(--bg-surface)" }}
             >
               <div className="flex items-center justify-between">
                 <span
@@ -96,7 +97,7 @@ export function Imprensa() {
                   <path stroke="currentColor" strokeWidth="2" strokeLinecap="round" d="M7 17L17 7M17 7H7M17 7v10" />
                 </svg>
               </div>
-              <p className="text-sm text-gray-500 leading-relaxed">{v.descricao}</p>
+              <p className="text-sm text-gray-500 dark:text-slate-400 leading-relaxed">{v.descricao}</p>
             </motion.a>
           ))}
         </div>

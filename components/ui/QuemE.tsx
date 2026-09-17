@@ -10,7 +10,7 @@ const highlights = [
 
 export function QuemE() {
   return (
-    <section id="quem-e" className="py-20 sm:py-28" style={{ background: "#F5F7FA" }}>
+    <section id="quem-e" className="py-20 sm:py-28" style={{ background: "var(--bg-alt)" }}>
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -27,20 +27,20 @@ export function QuemE() {
           </span>
           <h2
             className="text-4xl sm:text-5xl font-black uppercase leading-none mb-6"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif", color: "#063d20" }}
+            style={{ fontFamily: "'Barlow Condensed', sans-serif", color: "var(--text)" }}
           >
             Quem é Marco Vicenzo
           </h2>
           <div className="w-16 h-1 mb-8" style={{ background: "#D2540B" }} />
 
           <div className="max-w-2xl">
-            <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-4">
+            <p className="text-base sm:text-lg text-gray-600 dark:text-slate-400 leading-relaxed mb-4">
               Marco Antônio de Vicente Júnior, conhecido como Dr. Vicenzo, é advogado, jornalista e servidor público do Distrito Federal. Com formação em Direito pela UniCEUB e registro na OAB/DF, construiu carreira atuando na defesa dos direitos dos cidadãos e na fiscalização do poder público.
             </p>
-            <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-4">
+            <p className="text-base sm:text-lg text-gray-600 dark:text-slate-400 leading-relaxed mb-4">
               Sua atuação jornalística ganhou projeção regional através do canal @vicenzonews, onde acompanha e divulga ações relacionadas ao governo e à administração pública do DF, somando mais de 108 mil seguidores. Pessoalmente, mantém o perfil @vicenzodf com mais de 146 mil seguidores no Instagram.
             </p>
-            <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
+            <p className="text-base sm:text-lg text-gray-600 dark:text-slate-400 leading-relaxed">
               Ex-assessor do senador José Reguffe, acumulou experiência no campo político-institucional antes de decidir concorrer a Deputado Distrital pelo PSD (partido nº 55) nas eleições de 2026, com o número <strong style={{ color: "#0e7c3f" }}>55.678</strong>.
             </p>
           </div>
@@ -54,8 +54,8 @@ export function QuemE() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="bg-white rounded-sm p-6 border-l-4"
-              style={{ borderColor: "#0e7c3f", boxShadow: "0 2px 12px rgba(0,48,135,0.08)" }}
+              className="rounded-sm p-6 border-l-4"
+              style={{ background: "var(--bg-surface)", borderColor: "var(--brand)", boxShadow: "0 2px 12px rgba(0,0,0,0.08)" }}
             >
               <div className="text-3xl mb-3">{h.icon}</div>
               <div
@@ -64,7 +64,7 @@ export function QuemE() {
               >
                 {h.label}
               </div>
-              <div className="text-sm text-gray-500 leading-snug">{h.sub}</div>
+              <div className="text-sm text-gray-500 dark:text-slate-400 leading-snug">{h.sub}</div>
             </motion.div>
           ))}
         </div>

@@ -6,7 +6,7 @@ export function Hero() {
   return (
     <section
       className="min-h-[100dvh] relative overflow-hidden pt-16"
-      style={{ background: "#f4f6fb" }}
+      style={{ background: "var(--bg)" }}
     >
       {/* Photo: full-bleed behind everything, no container visible */}
       <div className="absolute inset-0 top-16">
@@ -22,7 +22,7 @@ export function Hero() {
           className="hidden md:block absolute inset-0"
           style={{
             background:
-              "linear-gradient(to right, #f4f6fb 28%, rgba(244,246,251,0.88) 44%, rgba(244,246,251,0.35) 62%, transparent 100%)",
+              "linear-gradient(to right, var(--bg) 28%, rgba(var(--bg-rgb), 0.88) 44%, rgba(var(--bg-rgb), 0.35) 62%, transparent 100%)",
           }}
         />
 
@@ -31,7 +31,7 @@ export function Hero() {
           className="md:hidden absolute inset-0"
           style={{
             background:
-              "linear-gradient(to bottom, #f4f6fb 32%, rgba(244,246,251,0.82) 52%, rgba(244,246,251,0.18) 72%, transparent 100%)",
+              "linear-gradient(to bottom, var(--bg) 32%, rgba(var(--bg-rgb), 0.82) 52%, rgba(var(--bg-rgb), 0.18) 72%, transparent 100%)",
           }}
         />
 
@@ -75,7 +75,7 @@ export function Hero() {
 
           <h1
             className="font-black tracking-tight mt-4 leading-tight"
-            style={{ fontSize: "clamp(26px,3.5vw,42px)", color: "#040d1e" }}
+            style={{ fontSize: "clamp(26px,3.5vw,42px)", color: "var(--text)" }}
           >
             Dr. Marco Vicenzo
           </h1>

@@ -42,7 +42,7 @@ const eventos = [
 
 export function Trajetoria() {
   return (
-    <section id="trajetoria" className="py-20 sm:py-28 bg-white">
+    <section id="trajetoria" className="py-20 sm:py-28" style={{ background: "var(--bg-surface)" }}>
       <div className="mx-auto max-w-4xl px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -59,7 +59,7 @@ export function Trajetoria() {
           </span>
           <h2
             className="text-4xl sm:text-5xl font-black uppercase leading-none mb-4"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif", color: "#063d20" }}
+            style={{ fontFamily: "'Barlow Condensed', sans-serif", color: "var(--text)" }}
           >
             Trajetória
           </h2>
@@ -70,7 +70,7 @@ export function Trajetoria() {
           {/* Linha vertical */}
           <div
             className="absolute left-4 sm:left-8 top-0 bottom-0 w-0.5"
-            style={{ background: "#E2E8F0" }}
+            style={{ background: "var(--border)" }}
           />
 
           <div className="space-y-10">
@@ -98,11 +98,11 @@ export function Trajetoria() {
                   </span>
                   <h3
                     className="text-xl sm:text-2xl font-bold mb-2"
-                    style={{ fontFamily: "'Barlow Condensed', sans-serif", color: "#063d20" }}
+                    style={{ fontFamily: "'Barlow Condensed', sans-serif", color: "var(--text)" }}
                   >
                     {e.titulo}
                   </h3>
-                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{e.descricao}</p>
+                  <p className="text-sm sm:text-base text-gray-600 dark:text-slate-400 leading-relaxed">{e.descricao}</p>
                 </div>
               </motion.div>
             ))}

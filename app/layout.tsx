@@ -27,7 +27,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="bg-white antialiased">
+      <body className="antialiased" style={{ background: "var(--bg)", color: "var(--text)" }}>
         <GTMNoScript />
         <GTMScript />
         <ClarityScript />

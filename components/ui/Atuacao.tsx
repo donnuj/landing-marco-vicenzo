@@ -36,7 +36,7 @@ const areas = [
 
 export function Atuacao() {
   return (
-    <section id="atuacao" className="py-20 sm:py-28" style={{ background: "#063d20" }}>
+    <section id="atuacao" className="py-20 sm:py-28" style={{ background: "var(--bg-section-dark)" }}>
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

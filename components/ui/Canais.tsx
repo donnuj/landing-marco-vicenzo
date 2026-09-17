@@ -72,7 +72,7 @@ const canais = [
 
 export function Canais() {
   return (
-    <section id="canais" className="py-20 sm:py-28" style={{ background: "#F5F7FA" }}>
+    <section id="canais" className="py-20 sm:py-28" style={{ background: "var(--bg-alt)" }}>
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -89,7 +89,7 @@ export function Canais() {
           </span>
           <h2
             className="text-4xl sm:text-5xl font-black uppercase leading-none mb-4"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif", color: "#063d20" }}
+            style={{ fontFamily: "'Barlow Condensed', sans-serif", color: "var(--text)" }}
           >
             Redes Sociais
           </h2>
@@ -107,13 +107,14 @@ export function Canais() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.07 }}
-              className="group flex items-start gap-4 bg-white rounded-sm p-5 border border-gray-100 hover:border-gray-300 hover:shadow-md transition-all"
+              className="group flex items-start gap-4 rounded-sm p-5 border border-gray-100 dark:border-white/10 hover:border-gray-300 dark:hover:border-white/25 hover:shadow-md transition-all"
+              style={{ background: "var(--bg-surface)" }}
             >
               <div className="flex-shrink-0" style={{ color: c.cor }}>{c.icon}</div>
               <div>
-                <div className="font-bold text-sm text-gray-800">{c.nome}</div>
+                <div className="font-bold text-sm text-gray-800 dark:text-slate-200">{c.nome}</div>
                 <div className="text-xs font-medium mb-1" style={{ color: c.cor }}>{c.handle}</div>
-                <div className="text-xs text-gray-500">{c.desc}</div>
+                <div className="text-xs text-gray-500 dark:text-slate-400">{c.desc}</div>
                 {c.seguidores && (
                   <div className="text-xs font-semibold mt-1" style={{ color: "#D2540B" }}>{c.seguidores}</div>
                 )}
