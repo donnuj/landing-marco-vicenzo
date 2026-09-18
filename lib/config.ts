@@ -28,4 +28,5 @@ export const siteConfig = {
 export const analyticsConfig = {
   gtmId: process.env.NEXT_PUBLIC_GTM_ID ?? "",
   clarityId: process.env.NEXT_PUBLIC_CLARITY_ID ?? "",
+  ga4Id: process.env.NEXT_PUBLIC_GA4_ID ?? "G-EFP1VN0ZEE",
 };

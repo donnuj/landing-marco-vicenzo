@@ -3,6 +3,7 @@ import "./globals.css";
 import { buildMetadata } from "@/lib/metadata";
 import { GTMScript, GTMNoScript } from "@/components/analytics/GTM";
 import { ClarityScript } from "@/components/analytics/Clarity";
+import { GA4Script } from "@/components/analytics/GA4";
 import { CookieConsent } from "@/components/analytics/CookieConsent";
 import { WhatsAppButton } from "@/components/whatsapp/WhatsAppButton";
 
@@ -30,6 +31,7 @@ export default function RootLayout({
       <body className="antialiased" style={{ background: "var(--bg)", color: "var(--text)" }}>
         <GTMNoScript />
         <GTMScript />
+        <GA4Script />
         <ClarityScript />
         {children}
         <WhatsAppButton />
