@@ -80,12 +80,17 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-white/40 text-center sm:text-left">
-            &copy; 2026 Dr. Marco Vicenzo — Propaganda Eleitoral. Material de campanha.
-          </p>
-          <p className="text-xs text-white/40 text-center sm:text-right max-w-sm">
-            Responsável: Marco Antônio de Vicente Júnior — CPF: {siteConfig.cpfResponsavel}. Os dados do formulário são usados exclusivamente para comunicações de campanha (LGPD).
+        <div className="border-t border-white/10 pt-6 flex flex-col gap-2">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
+            <p className="text-xs text-white/40 text-center sm:text-left">
+              &copy; 2026 Dr. Marco Vicenzo — Propaganda Eleitoral. Material de campanha.
+            </p>
+            <p className="text-xs text-white/40 text-center sm:text-right max-w-sm">
+              Os dados do formulário são usados exclusivamente para comunicações de campanha (LGPD).
+            </p>
+          </div>
+          <p className="text-xs text-white/30 text-center pt-1">
+            ELEIÇÃO 2026 MARCO ANTONIO DE VICENTE JUNIOR DEPUTADO DISTRITAL &mdash; CNPJ 68.385.878/0001-26
           </p>
         </div>
       </div>

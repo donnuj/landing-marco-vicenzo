@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-export function FormContato() {
+export function FormContato({ source = "SITE_FORMULARIO" }: { source?: string }) {
   const [nome, setNome] = useState("");
   const [contato, setContato] = useState("");
   const [mensagem, setMensagem] = useState("");
@@ -22,7 +22,7 @@ export function FormContato() {
           name: nome,
           phone: contato,
           message: mensagem,
-          source: "SITE_FORMULARIO",
+          source,
           campaign: "organico-2026",
         }),
       });
