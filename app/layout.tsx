@@ -4,6 +4,7 @@ import { buildMetadata } from "@/lib/metadata";
 import { GTMScript, GTMNoScript } from "@/components/analytics/GTM";
 import { ClarityScript } from "@/components/analytics/Clarity";
 import { GA4Script } from "@/components/analytics/GA4";
+import { MetaPixelScript } from "@/components/analytics/MetaPixel";
 import { CookieConsent } from "@/components/analytics/CookieConsent";
 import { WhatsAppButton } from "@/components/whatsapp/WhatsAppButton";
 
@@ -33,6 +34,7 @@ export default function RootLayout({
         <GTMScript />
         <GA4Script />
         <ClarityScript />
+        <MetaPixelScript />
         {children}
         <WhatsAppButton />
         <CookieConsent />
