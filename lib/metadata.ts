@@ -54,6 +54,9 @@ export function buildMetadata(overrides?: Partial<Metadata>): Metadata {
     alternates: {
       canonical: siteConfig.url,
     },
+    verification: {
+      google: "eJtDBPVFEv1zT0mQM5FgPUVprfWq4dfNgx91yMTqRlk",
+    },
     ...overrides,
   };
 }

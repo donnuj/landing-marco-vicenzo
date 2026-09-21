@@ -4,10 +4,10 @@ export const siteConfig = {
   description:
     "Dr. Marco Vicenzo, candidato a Deputado Distrital pelo PSD no Distrito Federal nas eleições de 2026. Advogado, jornalista e servidor público comprometido com a transparência e os direitos dos cidadãos do DF.",
   locale: "pt_BR",
-  phone: "5561992693187",
+  phone: "5561982654833",
   whatsappMessage:
     "Olá, Dr. Marco Vicenzo! Vim pelo site e gostaria de mais informações sobre sua candidatura.",
-  contactEmail: "contato@marcovicenzo.com.br",
+  contactEmail: "contato@votevicenzo.com.br",
   cpfResponsavel: "000.000.000-00",
   alertContacts: (process.env.NEXT_PUBLIC_ALERT_CONTACTS ?? "").split(","),
   instagram: "https://instagram.com/vicenzodf",
@@ -15,8 +15,8 @@ export const siteConfig = {
   tiktok: "https://www.tiktok.com/@vicenzodf",
   facebook: "https://facebook.com/vicenzodf",
   linkedin: "https://linkedin.com/in/marco-vicenzo-62b068176",
-  whatsappDirect: "https://wa.me/5561992693187",
-  whatsappGroup: "https://chat.whatsapp.com/vicenzodf",
+  whatsappDirect: "https://wa.me/5561982654833",
+  whatsappGroup: "https://chat.whatsapp.com/E70ocRUJOaL9vmQBrWlB0v?mode=gi_t",
   candidateNumber: "55.678",
   party: "PSD",
   partyNumber: "55",

@@ -42,7 +42,7 @@ async function sendNotification(lead: LeadPayload & { receivedAt: string }) {
     method: "POST",
     headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
     body: JSON.stringify({
-      from: "Dr. Marco Vicenzo <site@marcovicenzo.com.br>",
+      from: "Dr. Marco Vicenzo <contato@votevicenzo.com.br>",
       to: alertContacts,
       subject: `[VICENZO] Novo contato: ${lead.name}`,
       html,
