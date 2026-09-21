@@ -2,6 +2,7 @@ export const runtime = "edge";
 
 import { NextRequest, NextResponse } from "next/server";
 import { siteConfig } from "@/lib/config";
+import { getRequestContext } from "@cloudflare/next-on-pages";
 
 interface LeadPayload {
   name: string;
@@ -50,6 +51,27 @@ async function sendNotification(lead: LeadPayload & { receivedAt: string }) {
   }).catch((e) => console.error("[lead] email error:", e));
 }
 
+async function saveLead(lead: LeadPayload & { receivedAt: string }) {
+  try {
+    const { env } = getRequestContext();
+    const db = (env as Record<string, unknown>).DB as D1Database | undefined;
+    if (!db) return;
+    await db.prepare(
+      "INSERT INTO leads (name, phone, email, message, campaign, source, created_at) VALUES (?,?,?,?,?,?,?)"
+    ).bind(
+      lead.name,
+      lead.phone ?? null,
+      lead.email ?? null,
+      lead.message ?? null,
+      lead.campaign ?? null,
+      lead.source ?? null,
+      lead.receivedAt,
+    ).run();
+  } catch (e) {
+    console.error("[lead] d1 error:", e);
+  }
+}
+
 export async function POST(req: NextRequest) {
   let body: LeadPayload;
   try {
@@ -81,7 +103,7 @@ export async function POST(req: NextRequest) {
   };
 
   console.info("[lead]", { name: lead.name, source: lead.source, receivedAt: lead.receivedAt });
-  await sendNotification(lead);
+  await Promise.all([sendNotification(lead), saveLead(lead)]);
 
   return NextResponse.json({ ok: true }, { status: 201 });
 }
