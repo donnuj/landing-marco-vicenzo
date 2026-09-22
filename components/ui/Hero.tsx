@@ -1,5 +1,3 @@
-"use client";
-import { motion } from "framer-motion";
 import { siteConfig } from "@/lib/config";
 
 export function Hero() {
@@ -21,12 +19,7 @@ export function Hero() {
         <div className="w-full flex flex-col md:flex-row items-center gap-10 md:gap-16 py-10">
 
           {/* ── Foto de rosto (mobile: topo; desktop: coluna direita) ──────── */}
-          <motion.div
-            className="flex-shrink-0 order-first md:order-last"
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.15 }}
-          >
+          <div className="flex-shrink-0 order-first md:order-last animate-fade-right">
             {/* Mobile: foto centralizada, retrato compacto */}
             <div className="md:hidden mx-auto w-52 overflow-hidden rounded-2xl shadow-xl"
               style={{
@@ -35,10 +28,14 @@ export function Hero() {
               }}
             >
               <img
-                src="/fotos/hero.jpg"
+                src="/fotos/hero.webp"
                 alt="Dr. Marco Vicenzo"
                 className="w-full h-full object-cover"
                 style={{ objectPosition: "center top" }}
+                fetchPriority="high"
+                loading="eager"
+                width={208}
+                height={277}
               />
             </div>
 
@@ -52,10 +49,14 @@ export function Hero() {
               }}
             >
               <img
-                src="/fotos/hero.jpg"
+                src="/fotos/hero.webp"
                 alt="Dr. Marco Vicenzo"
                 className="w-full h-full object-cover"
                 style={{ objectPosition: "center top" }}
+                fetchPriority="high"
+                loading="eager"
+                width={360}
+                height={480}
               />
               {/* Badge no rodapé da foto */}
               <div
@@ -75,15 +76,10 @@ export function Hero() {
                 </p>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* ── Texto ─────────────────────────────────────────────────────── */}
-          <motion.div
-            className="flex-1 max-w-[500px] text-center md:text-left"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-          >
+          <div className="flex-1 max-w-[500px] text-center md:text-left animate-fade-up">
             <div
               className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-8 text-[11px] font-bold uppercase"
               style={{
@@ -178,7 +174,7 @@ export function Hero() {
                 </a>
               ))}
             </div>
-          </motion.div>
+          </div>
 
         </div>
       </div>
