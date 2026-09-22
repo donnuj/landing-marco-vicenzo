@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "Dr. Marco Vicenzo",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://marcovicenzo.com.br",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://votevicenzo.com.br",
   description:
     "Dr. Marco Vicenzo, candidato a Deputado Distrital pelo PSD no Distrito Federal nas eleições de 2026. Advogado, jornalista e servidor público comprometido com a transparência e os direitos dos cidadãos do DF.",
   locale: "pt_BR",
