@@ -55,9 +55,13 @@ async function syncToBackend(lead: LeadPayload & { receivedAt: string }) {
   const apiUrl = process.env.BACKEND_API_URL;
   if (!apiUrl) return;
   const ORG_ID = "eeeeeeee-0000-0000-0000-000000000005";
+  const apiKey = process.env.API_KEY;
   await fetch(`${apiUrl}/marketing/${ORG_ID}/contacts`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      ...(apiKey ? { "X-API-Key": apiKey } : {}),
+    },
     body: JSON.stringify({
       name: lead.name,
       whatsapp: lead.whatsapp,
