@@ -51,6 +51,24 @@ async function sendNotification(lead: LeadPayload & { receivedAt: string }) {
   }).catch((e) => console.error("[lead] email error:", e));
 }
 
+async function syncToBackend(lead: LeadPayload & { receivedAt: string }) {
+  const apiUrl = process.env.BACKEND_API_URL;
+  if (!apiUrl) return;
+  const ORG_ID = "eeeeeeee-0000-0000-0000-000000000005";
+  await fetch(`${apiUrl}/marketing/${ORG_ID}/contacts`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      name: lead.name,
+      whatsapp: lead.whatsapp,
+      regiaoAdministrativa: lead.regiao,
+      instagram: lead.instagram,
+      fontes: ["Site"],
+      source: lead.source ?? "site",
+    }),
+  }).catch((e) => console.error("[lead] backend sync error:", e));
+}
+
 async function saveLead(lead: LeadPayload & { receivedAt: string }) {
   try {
     const { env } = getRequestContext();
@@ -105,7 +123,7 @@ export async function POST(req: NextRequest) {
   };
 
   console.info("[lead]", { name: lead.name, source: lead.source, receivedAt: lead.receivedAt });
-  await Promise.all([sendNotification(lead), saveLead(lead)]);
+  await Promise.all([sendNotification(lead), saveLead(lead), syncToBackend(lead)]);
 
   return NextResponse.json({ ok: true }, { status: 201 });
 }
