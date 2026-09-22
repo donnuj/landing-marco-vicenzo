@@ -7,3 +7,12 @@ pages_build_output_dir = ".vercel/output/static"
 binding = "DB"
 database_name = "marco-vicenzo-leads"
 database_id = "d7c07466-254a-4199-b002-c869553938bc"
+
+[[unsafe.bindings]]
+name = "RATE_LIMITER"
+type = "ratelimit"
+namespace_id = "1001"
+
+[unsafe.bindings.simple]
+limit = 10
+period = 60

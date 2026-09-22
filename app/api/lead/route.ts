@@ -95,6 +95,16 @@ async function saveLead(lead: LeadPayload & { receivedAt: string }) {
 }
 
 export async function POST(req: NextRequest) {
+  try {
+    const { env } = getRequestContext();
+    const rl = (env as Record<string, unknown>).RATE_LIMITER as { limit: (o: { key: string }) => Promise<{ success: boolean }> } | undefined;
+    if (rl) {
+      const ip = req.headers.get("cf-connecting-ip") ?? "unknown";
+      const { success } = await rl.limit({ key: ip });
+      if (!success) return NextResponse.json({ error: "too_many_requests" }, { status: 429 });
+    }
+  } catch { /* rate limiter não disponível em dev */ }
+
   let body: LeadPayload;
   try {
     body = await req.json();
