@@ -2,10 +2,25 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 
+const REGIOES_DF = [
+  "Águas Claras", "Arniqueira", "Brasília", "Brazlândia",
+  "Candangolândia", "Ceilândia", "Cruzeiro", "Fercal", "Gama",
+  "Guará", "Itapoã", "Jardim Botânico", "Lago Norte", "Lago Sul",
+  "Núcleo Bandeirante", "Paranoá", "Park Way", "Planaltina",
+  "Recanto das Emas", "Riacho Fundo", "Riacho Fundo II", "Samambaia",
+  "Santa Maria", "São Sebastião", "SCIA (Cidade do Automóvel)", "SIA",
+  "Sobradinho", "Sobradinho II", "Sol Nascente/Pôr do Sol",
+  "Sudoeste/Octogonal", "Taguatinga", "Varjão", "Vicente Pires",
+];
+
+const INPUT_CLS =
+  "w-full px-4 py-3 border border-gray-300 dark:border-white/20 rounded-sm text-sm focus:outline-none focus:border-[#0e7c3f] transition-colors dark:text-white dark:placeholder-slate-500";
+
 export function FormContato({ source = "SITE_FORMULARIO" }: { source?: string }) {
   const [nome, setNome] = useState("");
-  const [contato, setContato] = useState("");
-  const [mensagem, setMensagem] = useState("");
+  const [wpp, setWpp] = useState("");
+  const [regiao, setRegiao] = useState("");
+  const [instagram, setInstagram] = useState("");
   const [aceite, setAceite] = useState(false);
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "error">("idle");
 
@@ -20,8 +35,9 @@ export function FormContato({ source = "SITE_FORMULARIO" }: { source?: string })
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name: nome,
-          phone: contato,
-          message: mensagem,
+          whatsapp: wpp,
+          regiao,
+          instagram: instagram || undefined,
           source,
           campaign: "organico-2026",
         }),
@@ -55,15 +71,6 @@ export function FormContato({ source = "SITE_FORMULARIO" }: { source?: string })
           </h2>
           <div className="w-16 h-1 mb-8" style={{ background: "#D2540B" }} />
 
-          {/* Aviso de transparência */}
-          <div
-            className="mb-8 p-4 rounded-sm border text-sm leading-relaxed"
-            style={{ background: "var(--bg-surface)", border: "1px solid var(--border)", color: "var(--text2)" }}
-          >
-            <strong>Por que pedimos seu contato?</strong><br />
-            Ao preencher este formulário, você está autorizando voluntariamente o recebimento de comunicações diretas relacionadas à campanha do Dr. Marco Vicenzo, incluindo informações, atualizações, notícias e materiais relacionados à candidatura. Você pode solicitar a remoção do seu contato a qualquer momento entrando em contato diretamente.
-          </div>
-
           {status === "ok" ? (
             <div
               className="p-6 rounded-sm text-center"
@@ -85,44 +92,63 @@ export function FormContato({ source = "SITE_FORMULARIO" }: { source?: string })
                   required
                   value={nome}
                   onChange={(e) => setNome(e.target.value)}
-                  placeholder="Seu nome"
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-white/20 rounded-sm text-sm focus:outline-none focus:border-[#0e7c3f] transition-colors dark:text-white dark:placeholder-slate-500"
+                  placeholder="Seu nome completo"
+                  className={INPUT_CLS}
                   style={{ background: "var(--bg-surface)" }}
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1" htmlFor="contato">
-                  WhatsApp ou e-mail <span className="text-red-500">*</span>
+                <label className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1" htmlFor="wpp">
+                  WhatsApp <span className="text-red-500">*</span>
                 </label>
                 <input
-                  id="contato"
-                  type="text"
+                  id="wpp"
+                  type="tel"
                   required
-                  value={contato}
-                  onChange={(e) => setContato(e.target.value)}
-                  placeholder="(61) 9xxxx-xxxx ou seu@email.com"
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-white/20 rounded-sm text-sm focus:outline-none focus:border-[#0e7c3f] transition-colors dark:text-white dark:placeholder-slate-500"
+                  value={wpp}
+                  onChange={(e) => setWpp(e.target.value)}
+                  placeholder="(61) 9xxxx-xxxx"
+                  className={INPUT_CLS}
                   style={{ background: "var(--bg-surface)" }}
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1" htmlFor="mensagem">
-                  Mensagem (opcional)
+                <label className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1" htmlFor="regiao">
+                  Região Administrativa <span className="text-red-500">*</span>
                 </label>
-                <textarea
-                  id="mensagem"
-                  rows={4}
-                  value={mensagem}
-                  onChange={(e) => setMensagem(e.target.value)}
-                  placeholder="Escreva sua mensagem, dúvida ou sugestão..."
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-white/20 rounded-sm text-sm focus:outline-none focus:border-[#0e7c3f] transition-colors resize-none dark:text-white dark:placeholder-slate-500"
+                <select
+                  id="regiao"
+                  required
+                  value={regiao}
+                  onChange={(e) => setRegiao(e.target.value)}
+                  className={INPUT_CLS}
+                  style={{ background: "var(--bg-surface)" }}
+                >
+                  <option value="">Selecione sua região</option>
+                  {REGIOES_DF.map((ra) => (
+                    <option key={ra} value={ra}>{ra}</option>
+                  ))}
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1" htmlFor="instagram">
+                  Instagram <span className="text-gray-400 font-normal">(opcional)</span>
+                </label>
+                <input
+                  id="instagram"
+                  type="text"
+                  value={instagram}
+                  onChange={(e) => setInstagram(e.target.value)}
+                  placeholder="@seu_perfil"
+                  className={INPUT_CLS}
                   style={{ background: "var(--bg-surface)" }}
                 />
               </div>
 
-              <div className="flex items-start gap-3">
+              <div className="flex items-start gap-3 pt-1">
                 <input
                   id="aceite"
                   type="checkbox"
@@ -132,7 +158,16 @@ export function FormContato({ source = "SITE_FORMULARIO" }: { source?: string })
                   required
                 />
                 <label htmlFor="aceite" className="text-sm text-gray-600 dark:text-slate-400 leading-relaxed cursor-pointer">
-                  Compreendo que ao enviar este formulário estou autorizando o recebimento de comunicações da campanha do Dr. Marco Vicenzo, podendo cancelar a qualquer momento.
+                  Autorizo o uso dos meus dados pessoais pela campanha do Dr. Marco Vicenzo para envio de comunicações políticas, conforme a{" "}
+                  <a
+                    href="/politica-de-privacidade"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline hover:text-[#0e7c3f] transition-colors"
+                  >
+                    Lei Geral de Proteção de Dados (LGPD — Lei nº 13.709/2018)
+                  </a>
+                  . Posso revogar este consentimento a qualquer momento.
                 </label>
               </div>
 

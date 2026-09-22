@@ -6,14 +6,14 @@ import { getRequestContext } from "@cloudflare/next-on-pages";
 
 interface LeadPayload {
   name: string;
-  phone?: string;
-  email?: string;
-  message?: string;
+  whatsapp: string;
+  regiao?: string;
+  instagram?: string;
   campaign?: string;
   source?: string;
 }
 
-const MAX_LEN = { name: 120, phone: 20, email: 254, message: 2000, campaign: 80 };
+const MAX_LEN = { name: 120, whatsapp: 20, regiao: 120, instagram: 120, campaign: 80 };
 const PHONE_RE = /^\+?[\d\s\-(). ]{6,20}$/;
 
 async function sendNotification(lead: LeadPayload & { receivedAt: string }) {
@@ -30,12 +30,12 @@ async function sendNotification(lead: LeadPayload & { receivedAt: string }) {
     <h2 style="margin:0 0 4px;font-size:22px">${lead.name}</h2>
     <p style="color:#a0b0c0;margin:0 0 20px;font-size:13px">${lead.receivedAt}</p>
     <table style="width:100%;border-collapse:collapse;border:1px solid #0a3d9e">
-      <tr><td style="padding:8px 12px;background:#0a2060;color:#a0b0c0;font-size:13px;width:110px">TELEFONE</td><td style="padding:8px 12px;font-size:13px">${lead.phone ?? "—"}</td></tr>
-      ${lead.email ? `<tr><td style="padding:8px 12px;background:#0a2060;color:#a0b0c0;font-size:13px">EMAIL</td><td style="padding:8px 12px;font-size:13px">${lead.email}</td></tr>` : ""}
+      <tr><td style="padding:8px 12px;background:#0a2060;color:#a0b0c0;font-size:13px;width:130px">WHATSAPP</td><td style="padding:8px 12px;font-size:13px">${lead.whatsapp}</td></tr>
+      ${lead.regiao ? `<tr><td style="padding:8px 12px;background:#0a2060;color:#a0b0c0;font-size:13px">REGIÃO</td><td style="padding:8px 12px;font-size:13px">${lead.regiao}</td></tr>` : ""}
+      ${lead.instagram ? `<tr><td style="padding:8px 12px;background:#0a2060;color:#a0b0c0;font-size:13px">INSTAGRAM</td><td style="padding:8px 12px;font-size:13px">${lead.instagram}</td></tr>` : ""}
       <tr><td style="padding:8px 12px;background:#0a2060;color:#a0b0c0;font-size:13px">ORIGEM</td><td style="padding:8px 12px;font-size:13px">${lead.source ?? lead.campaign ?? "—"}</td></tr>
-      ${lead.message ? `<tr><td style="padding:8px 12px;background:#0a2060;color:#a0b0c0;font-size:13px">MENSAGEM</td><td style="padding:8px 12px;font-size:13px">${lead.message}</td></tr>` : ""}
     </table>
-    ${lead.phone ? `<div style="margin-top:20px;text-align:center"><a href="https://wa.me/55${lead.phone.replace(/\D/g,"")}" style="display:inline-block;padding:12px 28px;background:#4E9E39;color:#fff;text-decoration:none;font-weight:bold;font-size:13px;letter-spacing:2px">RESPONDER NO WHATSAPP</a></div>` : ""}
+    <div style="margin-top:20px;text-align:center"><a href="https://wa.me/55${lead.whatsapp.replace(/\D/g,"")}" style="display:inline-block;padding:12px 28px;background:#4E9E39;color:#fff;text-decoration:none;font-weight:bold;font-size:13px;letter-spacing:2px">RESPONDER NO WHATSAPP</a></div>
   </div>
 </body></html>`;
 
@@ -57,12 +57,12 @@ async function saveLead(lead: LeadPayload & { receivedAt: string }) {
     const db = (env as Record<string, unknown>).DB as D1Database | undefined;
     if (!db) return;
     await db.prepare(
-      "INSERT INTO leads (name, phone, email, message, campaign, source, created_at) VALUES (?,?,?,?,?,?,?)"
+      "INSERT INTO leads (name, phone, regiao_administrativa, instagram, campaign, source, created_at) VALUES (?,?,?,?,?,?,?)"
     ).bind(
       lead.name,
-      lead.phone ?? null,
-      lead.email ?? null,
-      lead.message ?? null,
+      lead.whatsapp,
+      lead.regiao ?? null,
+      lead.instagram ?? null,
       lead.campaign ?? null,
       lead.source ?? null,
       lead.receivedAt,
@@ -80,23 +80,25 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "invalid_body" }, { status: 400 });
   }
 
-  const { name, phone, email, message, campaign, source } = body;
+  const { name, whatsapp, regiao, instagram, campaign, source } = body;
 
-  if (!name?.trim() || (!phone?.trim() && !email?.trim()))
+  if (!name?.trim() || !whatsapp?.trim())
     return NextResponse.json({ error: "invalid_fields" }, { status: 422 });
 
   if (name.length > MAX_LEN.name)
     return NextResponse.json({ error: "field_too_long", field: "name" }, { status: 422 });
-  if (phone && (phone.length > MAX_LEN.phone || !PHONE_RE.test(phone)))
+  if (whatsapp.length > MAX_LEN.whatsapp || !PHONE_RE.test(whatsapp))
     return NextResponse.json({ error: "invalid_phone" }, { status: 422 });
-  if (message && message.length > MAX_LEN.message)
-    return NextResponse.json({ error: "field_too_long", field: "message" }, { status: 422 });
+  if (regiao && regiao.length > MAX_LEN.regiao)
+    return NextResponse.json({ error: "field_too_long", field: "regiao" }, { status: 422 });
+  if (instagram && instagram.length > MAX_LEN.instagram)
+    return NextResponse.json({ error: "field_too_long", field: "instagram" }, { status: 422 });
 
   const lead = {
     name: name.trim(),
-    phone: phone?.trim(),
-    email: email?.trim(),
-    message: message?.trim(),
+    whatsapp: whatsapp.trim(),
+    regiao: regiao?.trim(),
+    instagram: instagram?.trim() || undefined,
     campaign: campaign?.trim(),
     source: source?.trim(),
     receivedAt: new Date().toISOString(),
